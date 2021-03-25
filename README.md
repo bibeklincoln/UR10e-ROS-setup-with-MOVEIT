@@ -1,9 +1,8 @@
-# UR10e-ROS-setup-with-MOVEIT-
 UR10e-ROS-setup-with-MOVEIT
 Universal Robot (UR) is one of the most popular and used robot worldwide. This short tutorial explains and details the procedures of installing UR10e ROS robot driver in the Ubuntu system, and how to control the robot remotely using TCP/IP communication. 
 
  
-
+Picture 1
 Recommended requirements:
 1.	Ubuntu 20.04 .2.0 LTS (Focal Fossa)
 2.	ROS Noetic (targeted for Ubuntu Focal release)
@@ -12,14 +11,14 @@ Recommended requirements:
 The official documentation of installing ROS driver for the UR is described at https://github.com/UniversalRobots/Universal_Robots_ROS_Driver, however it could be bit tedious and difficult to understand time to time. In this document the most specific version for the current robot and system has been described in following sections:
 1.	Setting up URCap on UR10e.
 2.	Setting up TCP/IP connection. 
-3.	Installing drivers. 
+3.	Installing drivers and testing. 
 
 
 
 1.	Setting up URCap on the UR10e:
 URCaps is a platform where distributors and integrators can present accessories that run successfully in UR robot applications at end users. Caps are to robots, what apps are to smartphones: useful accessories, hardware and software extending the capabilities of UR robots handling many different tasks. 
 	 
-
+Picture 2
 URCap is important for the remote control connection with the robot, and to setup the URCap first a registration of the robot is necessary. Registration is fairly simple at the universal-robot.com/register website. After the registration a file will be generated which needs to be download and put into a USB dive. This file needs to ne sent to the Polyscope using ‘Open’ file and load options, and once done the ‘Robot Registration’ page will show the updated registration information and the robot is ready for installing URCap. 
 To move further, first you need to download the UR robot driver directory from the https://github.com/ros-industrial/universal_robot repository. 
 For using the ur_robot_driver you need to install the ‘externalcontrol-1.0.4.urcap’ on the Polyscope itself, and it can be found inside the resources folder of the downloaded driver. To install it you first need to copy it to the robot's programs folder which can be done with using a USB stick. 
@@ -47,6 +46,8 @@ In a terminal:
 6.	Lastly activate the workspace (ie: source it): $ source devel/setup.bash
 
 Following the above-mentioned steps should work without issue, alternatively this can be built using all-source build method which can be found on the GitHub page given before.   
+
+2.	Setting up TCP/IP connection. 
 Now the pending part of the External Control should be done which is setting up IP in both on Polyscope and in your system. 
 First you need to connect the robot and PC using an Ethernet cable. The ethernet port on the robot can be found inside the control box shown in picture 7: 
  
@@ -60,6 +61,7 @@ Picture 8
 If everything goes okay, then Polyscope will show that “Network is connected”, now if you click on Setting -> About, a new screen with the assigned IP will show: 
  
  Picture 9
+3.	Installing drivers and testing
 Now our systems are ready to connect each other. On Ubuntu open a new terminal and type: 
 roslaunch ur_robot_driver ur10e_bringup.launch robot_ip:=169.254.23.100
 The ROS should start with a master node and should wait for command from robot side.  Then on the Polyscope, go to “Run” and load the External control URCaps (see picture 10 & 11). 
@@ -84,7 +86,7 @@ To start with Moveit run: roslaunch ur10_moveit_config demo.launch rviz_tutorial
 A new graphical window should pop up see picture 16.
  
 Picture 16
-Here robot is posing following the real robot and graphical planning for joints and end-effector is possible. 
+Here robot pose is followed by the real robot in real time and graphical planning for joints and end-effector is possible. 
 
 
    
