@@ -61,17 +61,21 @@ Following the above-mentioned steps should work without issue, alternatively thi
 2.	Setting up TCP/IP connection. 
 Now the pending part of the External Control should be done which is setting up IP in both on Polyscope and in your system. 
 First you need to connect the robot and PC using an Ethernet cable. The ethernet port on the robot can be found inside the control box shown in picture 7: 
- 
-Picture 7
+ !![image](https://user-images.githubusercontent.com/7438736/113158262-8c506b00-9233-11eb-8537-618c287377a0.png)
+
+Picture 7: Plug the ethernet cable as signed in the control box
+
 After plugin the cables on both devices, open a terminal on Ubuntu and perform an ifconfig. Look for eth0 IP address and take a note on it. This address should be different than Wi-Fi IP. 
 Then on the Polyscope go to the Settings -> Network -> Static Address. I tried to use DHCP but for some reason this cannot make automatic IP assignment, also by using Static address we don’t need to change IP on Polyscope every time. 
 In the Static Address, the IP address should be similar to your PC’s (i.e. host) eth0 address but slightly modified, e.g., if the host IP is 169.254.23. 160, then the client (i.e. robot) should be 169.254.23.100 – the last bit should be anything less than 160. 
 Then the Subnet mask should be 255.255.0.0, and the Default gateway as 0.0.0.0. The rest of Network section i.e. Preferred DNS and Alternate DNS should automatically take as 0.0.0.0. 
- 
-Picture 8
+ !![image](https://user-images.githubusercontent.com/7438736/113158403-aab66680-9233-11eb-8a73-10b94bd436c5.png)
+
+Picture 8: Configue the Network, preferrably Static
 If everything goes okay, then Polyscope will show that “Network is connected”, now if you click on Setting -> About, a new screen with the assigned IP will show: 
- 
- Picture 9
+ !![image](https://user-images.githubusercontent.com/7438736/113158553-cd487f80-9233-11eb-8c92-7614a2fa8d60.png)
+
+ Picture 9: IP should be shown on the About page 
 3.	Installing drivers and testing
 Now our systems are ready to connect each other. On Ubuntu open a new terminal and type: 
 roslaunch ur_robot_driver ur10e_bringup.launch robot_ip:=169.254.23.100
