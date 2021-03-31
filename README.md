@@ -1,8 +1,10 @@
 UR10e-ROS-setup-with-MOVEIT
 Universal Robot (UR) is one of the most popular and used robot worldwide. This short tutorial explains and details the procedures of installing UR10e ROS robot driver in the Ubuntu system, and how to control the robot remotely using TCP/IP communication. 
 
- 
-Picture 1
+! ![image](https://user-images.githubusercontent.com/7438736/113154392-e2231400-922f-11eb-8810-e0e610833b1a.png)
+
+Picture 1: The UR10e robot in our lab
+
 Recommended requirements:
 1.	Ubuntu 20.04 .2.0 LTS (Focal Fossa)
 2.	ROS Noetic (targeted for Ubuntu Focal release)
@@ -17,8 +19,10 @@ The official documentation of installing ROS driver for the UR is described at h
 
 1.	Setting up URCap on the UR10e:
 URCaps is a platform where distributors and integrators can present accessories that run successfully in UR robot applications at end users. Caps are to robots, what apps are to smartphones: useful accessories, hardware and software extending the capabilities of UR robots handling many different tasks. 
+!![image](https://user-images.githubusercontent.com/7438736/113154565-07178700-9230-11eb-9b1c-941835ebdff8.png)
 	 
-Picture 2
+Picture 2: Polyscope URCap section
+
 URCap is important for the remote control connection with the robot, and to setup the URCap first a registration of the robot is necessary. Registration is fairly simple at the universal-robot.com/register website. After the registration a file will be generated which needs to be download and put into a USB dive. This file needs to ne sent to the Polyscope using ‘Open’ file and load options, and once done the ‘Robot Registration’ page will show the updated registration information and the robot is ready for installing URCap. 
 To move further, first you need to download the UR robot driver directory from the https://github.com/ros-industrial/universal_robot repository. 
 For using the ur_robot_driver you need to install the ‘externalcontrol-1.0.4.urcap’ on the Polyscope itself, and it can be found inside the resources folder of the downloaded driver. To install it you first need to copy it to the robot's programs folder which can be done with using a USB stick. 
