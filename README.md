@@ -27,18 +27,25 @@ URCap is important for the remote control connection with the robot, and to setu
 To move further, first you need to download the UR robot driver directory from the https://github.com/ros-industrial/universal_robot repository. 
 For using the ur_robot_driver you need to install the ‘externalcontrol-1.0.4.urcap’ on the Polyscope itself, and it can be found inside the resources folder of the downloaded driver. To install it you first need to copy it to the robot's programs folder which can be done with using a USB stick. 
 After putting the file in USB just plug it into the Polyscope’s USB slot and switch it on. As seen in the Picture 3, go to the ‘Settings’ tab and simply click the little plus sign at the bottom to open the file selector. There you should see all URCcap files stored inside the plugged USB drive. Select and open the externalcontrol-1.0.4.urcap file and click open. Your URCaps view should now show the External Control in the list of active URCaps and a notification to restart the robot. 
- 
-Picture 3 
+ !![image](https://user-images.githubusercontent.com/7438736/113155611-1e0aa900-9231-11eb-998a-71df7256ce82.png)
+
+Picture 3: Setting up the URCap for the first time
+
 After the reboot you should find the External Control URCaps inside the Installation section. For this select Program Robot on the welcome screen, select the Installation tab and select External Control from the list. Here you need to setup the IP address of the external PC (see Picture 4) which will be running the ROS driver.
- 
-Picture 4
+! ![image](https://user-images.githubusercontent.com/7438736/113155717-3b3f7780-9231-11eb-933a-45b0439f54d8.png)
+
+Picture 4: Setting up host IP address 
+
 We will do the IP setup later, now for the information all the installed URCaps can be found in Settings -> System -> URCaps section (see Picture 5). 
+!![image](https://user-images.githubusercontent.com/7438736/113155773-4e524780-9231-11eb-8acd-10fd07a0904d.png)
 
  
-Picture 5
+Picture 5: Sucessfull URCap will be stored in the URCap section at the Settings -> System -> URCaps 
+
 To use this External Control URCaps we need to create a new program and insert the External Control program node into the program tree (see Picture 6), check if the information is correct and save it for later. 
- 
-Picture 6
+ !![image](https://user-images.githubusercontent.com/7438736/113155892-6b871600-9231-11eb-8e10-bd1754a79f3b.png)
+
+Picture 6: URCap can be loaded under Program -> URCaps
 
 The next task is to install the UR10e robot driver in Ubuntu assuming you already have installed ROS Noetic in the system, if yes then please follow the below instructions:
 In a terminal:
