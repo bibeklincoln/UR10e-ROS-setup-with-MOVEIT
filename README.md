@@ -80,10 +80,14 @@ If everything goes okay, then Polyscope will show that “Network is connected�
 Now our systems are ready to connect each other. On Ubuntu open a new terminal and type: 
 roslaunch ur_robot_driver ur10e_bringup.launch robot_ip:=169.254.23.100
 The ROS should start with a master node and should wait for command from robot side.  Then on the Polyscope, go to “Run” and load the External control URCaps (see picture 10 & 11). 
+ !![image](https://user-images.githubusercontent.com/7438736/113263721-0a5f5100-92ca-11eb-8c38-f037e5e799d6.png)
+
+Picture 10: Loading the saved URCaps from Run-> Load Program
+!![image](https://user-images.githubusercontent.com/7438736/113263826-2ebb2d80-92ca-11eb-90c8-067124cc952d.png)
+
  
-Picture 10
- 
-Picture 11
+Picture 11: Starting the Extra Control URCaps from the bottom of the page Run buttom.
+
 Once this External Control URCaps is running on the Polyscope, a message should show on the terminal that “Robot is ready to receive control commands”. 
  
 Picture 12
